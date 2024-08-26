@@ -6,20 +6,23 @@
 [string]$Exe = "IntuneWinAppUtil.exe"
 
 # Source content prep tool
-if (-not(Test-Path -Path "$env:ProgramData\$Exe")){
-    Invoke-WebRequest -Uri "$Uri/$Exe" -OutFile "$env:ProgramData\$Exe"
+if (-not(Test-Path -Path 'E:\Intune Tools\IntuneWinAppUtil.exe')) {
+    Invoke-WebRequest -Uri "$Uri/$Exe" -OutFile "E:\Intune Tools\$Exe"
 }
 
 # Execute content prep tool
 $processOptions = @{
-    FilePath = "$env:ProgramData\$Exe"
+    FilePath = "E:\Intune Tools\IntuneWinAppUtil.exe"
     ArgumentList  = "-c ""$Cache"" -s ""$Cache\Deploy-Application.exe"" -o ""$env:TEMP"" -q"
-    WindowStyle = "Maximized"
+    WindowStyle = "Normal"
     Wait = $true
 }
 Start-Process @processOptions
 
 # Rename and prepare for upload
-mkdir $Desktop\$Application
-Move-Item -Path "$env:TEMP\Deploy-Application.intunewin" -Destination "$Desktop\$Application\$Application.intunewin" -Force -Verbose
-explorer $Desktop
+$Dest = "E:\Intune Tools\Intune Apps"
+mkdir $Dest\$Application
+# Move-Item -Path "$env:TEMP\Deploy-Application.intunewin" -Destination "$Desktop\$Application\$Application.intunewin" -Force -Verbose
+Move-Item -Path "$env:TEMP\Deploy-Application.intunewin" -Destination "E:\Intune Tools\Intune Apps\$Application\$Application.intunewin" -Force -Verbose
+
+explorer $Dest
