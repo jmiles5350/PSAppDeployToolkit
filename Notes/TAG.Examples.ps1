@@ -1,0 +1,14 @@
+// BUG
+// TODO
+// FIXME
+// RECHECK
+// INCOMPLETE
+// IDEA
+// NOTE
+// COMMENT
+// USEFUL
+// LEARN
+// SEE NOTES
+// POST
+// [ ]
+// [x]

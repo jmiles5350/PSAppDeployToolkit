@@ -1,0 +1,32 @@
+NOTES:
+
+
+
+- terminal tabs?
+- terminal and Workspace configs
+
+-Connect exchange online w/o prompt
+
+- Fix new hire email footer (HTML)
+
+###########################################
+- Get dist groups to edit for on and off boarding
+
+Confirm:$false
+
+$UPN = 'rturner@ratiodesign.com'
+$23dInteriors = (Get-MgGroup -Filter "displayName eq '23d Interior Design - Raleigh'").mail
+
+Add-DistributionGroupMember -Identity $23dInteriors -Member $UPN
+Remove-DistributionGroupMember -Identity $23dInteriors -Member $UPN confirm:$false
+
+
+
+$ref = '$ref'
+$url = "https://graph.microsoft.com/v1.0/groups/$groupID/members/$userID/$ref"
+Invoke-RestMethod -Method DELETE -Uri $url -Headers @{Authorization = "Bearer $token"}
+
+
+Get-ADPrincipalGroupMembership -Identity $samAccountName | Select-Object name, samaccountname, groupcategory, groupscope | export-CSV $GroupsCSV
+
+Get-MgUserMemberOf -UserId kschmitt@ratiodesign.com | Select-Object displayName, Id
