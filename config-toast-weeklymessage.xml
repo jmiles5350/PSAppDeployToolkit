@@ -4,7 +4,7 @@
 	<Feature Name="PendingRebootUptime" Enabled="False" />	<!-- Enables the toast for reminding users of restarting their device if it exceeds the uptime defined in MaxUptimeDays -->
 	<Feature Name="WeeklyMessage" Enabled="True" /> <!-- Enables weekly reminder messages on specified day and hour -->
 	<Option Name="MaxUptimeDays" Value="-6" />	<!-- When using the toast for checking for pending reboots. A reboot is considered pending if computer uptime exceeds the value set here -->
-	<Option Name="WeeklyMessageDay" Value="1" /> <!-- Numeric day(s) when WeeklyMessage should trigger (1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday, 7=Sunday). Single day: 3 | Multiple days: 1,3,5 | All weekdays: 1,2,3,4,5 -->
+	<Option Name="WeeklyMessageDay" Value="1,2,3,4,5" /> <!-- Numeric day(s) when WeeklyMessage should trigger (1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday, 7=Sunday). Single day: 3 | Multiple days: 1,3,5 | All weekdays: 1,2,3,4,5 -->
 	<Option Name="WeeklyMessageHour" Value="-1" /> <!-- Hour when WeeklyMessage should trigger (-1=any hour during target day, 0-23=specific hour in 24-hour format) -->
 	<Option Name="PendingRebootUptimeText" Enabled="True" />	<!-- Adds an additional group to the toast with text about the uptime of the computer -->
 	<Option Name="CustomNotificationApp" Enabled="true" Value="RATIO NOTIFICATIONS"/>	<!-- The app in Windows doing the actual notification. When enabled, uses custom app. When disabled, automatically defaults to PowerShell app for reliable notification delivery -->
